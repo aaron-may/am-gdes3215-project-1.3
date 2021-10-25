@@ -180,7 +180,9 @@ textarea {
     background-color: #06435a;
 }
 
-
+.cloudy {
+    background-image: url(../img_manhattanrain.jpg);
+}
 
 
  /* ==========================================================================

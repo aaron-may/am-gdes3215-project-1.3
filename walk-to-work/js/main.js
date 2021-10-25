@@ -2,9 +2,9 @@
 // add the latitude and longitude for your location one lines 6 and 7
 // move on to adding your data requests on line 22
 function weatherBalloon() {
-  var key = '';
-  var lat = '';
-  var lon = '';
+  var key = '40e41cd2bcb2a21ae5fe764300f13159';
+  var lat = '40.7831';
+  var lon = '-73.9712';
   fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + key)  
   .then(function(resp) { return resp.json() }) // Convert data to json
   .then(function(data) {
@@ -21,6 +21,39 @@ function drawWeather( d ) {
 
   // add your specfic weather requests here
 
+$('.currenttemp h1').html( convertTemp(d.current.temp)&deg );
+$('.currentprecip h3').html(d.current.rain)&percnt;
+$('.current wind h3').html(d.current.wind_speed);
+
+$('.weekforecast .day1 .day').html( displayDay(1) );
+$('.weekforecast .day1 .high').html( convertTemp(d.daily[1].temp.max) );
+$('.weekforecast .day1 .precip').html( convertTemp(d.daily[1].temp.min) );
+$('.weekforecast .day1 .wind').html(d.daily[1].wind_speed);
+
+$('.weekforecast .day2 .day').html( displayDay(2) );
+$('.weekforecast .day2 .high').html( convertTemp(d.daily[2].temp.max) );
+$('.weekforecast .day2 .precip').html( convertTemp(d.daily[2].temp.min) );
+$('.weekforecast .day2 .wind').html(d.daily[2].wind_speed);
+
+$('.weekforecast .day3 .day').html( displayDay(3) );
+$('.weekforecast .day3 .high').html( convertTemp(d.daily[3].temp.max) );
+$('.weekforecast .day3 .precip').html( convertTemp(d.daily[3].temp.min) );
+$('.weekforecast .day3 .wind').html(d.daily[3].wind_speed);
+
+$('.weekforecast .day4 .day').html( displayDay(4) );
+$('.weekforecast .day4 .high').html( convertTemp(d.daily[4].temp.max) );
+$('.weekforecast .day4 .precip').html( convertTemp(d.daily[4].temp.min) );
+$('.weekforecast .day4 .wind').html(d.daily[4].wind_speed);
+
+$('.weekforecast .day5 .day').html( displayDay(5) );
+$('.weekforecast .day5 .high').html( convertTemp(d.daily[5].temp.max) );
+$('.weekforecast .day5 .precip').html( convertTemp(d.daily[5].temp.min) );
+$('.weekforecast .day5 .wind').html(d.daily[5].wind_speed);
+
+$('.weekforecast .day6 .day').html( displayDay(6) );
+$('.weekforecast .day6 .high').html( convertTemp(d.daily[6].temp.max) );
+$('.weekforecast .day6 .precip').html( convertTemp(d.daily[6].temp.min) );
+$('.weekforecast .day6 .wind').html(d.daily[6].wind_speed);
 }
 
 
@@ -134,13 +167,13 @@ function displayDay(n){
   var d = new Date();
   var weekday = new Array();
 
-  weekday[0] = "Sun";
-  weekday[1] = "Mon";
-  weekday[2] = "Tue";
-  weekday[3] = "Wed";
-  weekday[4] = "Thu";
-  weekday[5] = "Fri";
-  weekday[6] = "Sun";
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Sunday";
 
   var dispDay = d.getDay() + n;
 
